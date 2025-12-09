@@ -1,5 +1,3 @@
-I'll add the disclaimer about the repository being under construction in a more visible location at the top and fix the HTML rendering issue. Here's the updated version:
-
 # 🚀 MyStack: Full-Stack AI Engineering Journey
 
 <div align="center">
@@ -165,6 +163,14 @@ FASTAPI_RELOAD=true
 DATABASE_URL=postgresql://user:password@localhost:5432/mystack
 REDIS_URL=redis://localhost:6379/0
 
+# HuggingFace Configuration
+HUGGINGFACE_TOKEN=your_token_here
+HUGGINGFACE_CACHE_DIR=./.cache/huggingface
+
+# Ollama Configuration
+OLLAMA_HOST=http://localhost:11434
+OLLAMA_MODEL=llama2
+
 # Application Settings
 DEBUG=true
 LOG_LEVEL=INFO
@@ -182,7 +188,8 @@ MyStack/
 │   │   ├── 📂 ml_inference_api/    # ML model serving API
 │   │   ├── 📂 rag_api/             # Retrieval-Augmented Generation API
 │   │   ├── 📂 websockets/          # Real-time WebSocket endpoints
-│   │   └── 📂 middleware/          # Custom middleware and auth
+│   │   ├── 📂 middleware/          # Custom middleware and auth
+│   │   └── 📂 huggingface_apis/    # HuggingFace model APIs
 │   │
 │   └── 📂 sqlalchemy_alembic/      # Database ORM & Migrations
 │       ├── 📂 models/              # SQLAlchemy models
@@ -194,7 +201,8 @@ MyStack/
 │   ├── 📂 sql/                      # Relational Databases
 │   │   ├── 📂 postgresql/          # PostgreSQL with pgvector
 │   │   ├── 📂 migrations/          # Database schema management
-│   │   └── 📂 queries/             # Complex SQL queries and optimizations
+│   │   ├── 📂 queries/             # Complex SQL queries and optimizations
+│   │   └── 📂 model_tables/        # Database tables for ML models and metadata
 │   │
 │   ├── 📂 nosql/                    # NoSQL Databases
 │   │   ├── 📂 mongodb/             # Document database for metadata
@@ -206,6 +214,45 @@ MyStack/
 │       ├── 📂 weaviate/            # Weaviate vector database
 │       ├── 📂 pgvector/            # PostgreSQL vector extension
 │       └── 📂 embeddings/          # Embedding generation and management
+│
+├── 📂 model_ecosystem/              # Model Ecosystem & Integration
+│   ├── 📂 huggingface/              # HuggingFace Integration
+│   │   ├── 📂 transformers/        # Transformer models
+│   │   ├── 📂 pipelines/           # Pre-built pipelines
+│   │   ├── 📂 model_hub/           # Model downloading and caching
+│   │   ├── 📂 fine_tuning/         # Model fine-tuning examples
+│   │   └── 📂 custom_models/       # Custom model upload to HF Hub
+│   │
+│   ├── 📂 ollama/                   # Ollama Local Models
+│   │   ├── 📂 model_management/    # Local model management
+│   │   ├── 📂 api_integration/     # Ollama REST API integration
+│   │   ├── 📂 custom_prompts/      # Prompt templates and management
+│   │   └── 📂 embeddings/          # Local embedding generation
+│   │
+│   └── 📂 model_registry/           # Model Registry & Management
+│       ├── 📂 versioning/          # Model version control
+│       ├── 📂 metadata/            # Model metadata storage
+│       ├── 📂 deployment/          # Model deployment tracking
+│       └── 📂 monitoring/          # Model performance monitoring
+│
+├── 📂 scaling_technologies/         # Scaling & Distributed Computing
+│   ├── 📂 spark/                    # Apache Spark
+│   │   ├── 📂 pyspark/             # PySpark for Python
+│   │   ├── 📂 data_processing/     # Large-scale data processing
+│   │   ├── 📂 ml_pipelines/        # Distributed ML training
+│   │   └── 📂 streaming/           # Spark Streaming
+│   │
+│   ├── 📂 deepspeed/                # DeepSpeed Optimization
+│   │   ├── 📂 zero_optimization/   # ZeRO optimization stages
+│   │   ├── 📂 model_parallelism/   # Model parallelism
+│   │   ├── 📂 gradient_checkpointing/ # Memory optimization
+│   │   └── 📂 inference/           # Optimized inference
+│   │
+│   └── 📂 ray/                      # Ray Distributed Computing
+│       ├── 📂 ray_train/           # Distributed training
+│       ├── 📂 ray_serve/           # Model serving
+│       ├── 📂 ray_tune/            # Hyperparameter tuning
+│       └── 📂 ray_data/            # Distributed data processing
 │
 ├── 📂 async_processing/             # Asynchronous Task Processing
 │   ├── 📂 celery/                   # Distributed Task Queue
@@ -374,6 +421,8 @@ MyStack/
 |-----------|---------|------------------|
 | **`api_layer/`** | Backend APIs and database layer | FastAPI, SQLAlchemy, Alembic |
 | **`data_layer/`** | All data storage solutions | PostgreSQL, MongoDB, Redis, Qdrant |
+| **`model_ecosystem/`** | Model integration & management | HuggingFace, Ollama, Model Registry |
+| **`scaling_technologies/`** | Distributed computing | Spark, DeepSpeed, Ray |
 | **`async_processing/`** | Background task processing | Celery, Redis Queue |
 | **`ml_serving/`** | ML model development and serving | PyTorch, ONNX, TensorRT |
 | **`containerization/`** | Container and orchestration | Docker, Kubernetes, Helm |
@@ -402,8 +451,14 @@ For those wanting to quickly navigate:
 ├── 🔧 Core Development
 │   ├── 📂 FASTAPI/              # Current FastAPI implementation
 │   ├── 📂 api_layer/            # Complete API layer (planned)
+│   ├── 📂 model_ecosystem/      # HuggingFace + Ollama integration
 │   ├── 📂 ml_serving/           # ML serving (planned)
 │   └── 📂 frontend/             # UI layer (planned)
+│
+├── ⚡ Scaling & Performance
+│   ├── 📂 scaling_technologies/  # Spark, DeepSpeed, Ray
+│   ├── 📂 async_processing/      # Celery task queue
+│   └── 📂 data_layer/           # Multi-database architecture
 │
 ├── 🏗️ Production Ready
 │   ├── 📂 infrastructure/        # IaC and deployment
@@ -443,6 +498,31 @@ For those wanting to quickly navigate:
 - `SQL/` - PostgreSQL with pgvector
 - `NOSQL/` - MongoDB & Redis
 - `VECTOR_DB/` - Qdrant & Weaviate
+
+</td></tr>
+
+<tr><td>
+
+### 🤗 **Model Ecosystem**
+<img src="https://img.shields.io/badge/HuggingFace-FFD21E?logo=huggingface&logoColor=black" alt="HuggingFace"/>
+<img src="https://img.shields.io/badge/Ollama-2B2D42?logo=ollama&logoColor=white" alt="Ollama"/>
+
+**Model Integration & Management**
+- `huggingface/` - Transformer models and pipelines
+- `ollama/` - Local model serving and management
+- `model_registry/` - Model lifecycle management
+
+</td><td>
+
+### ⚡ **Scaling Technologies**
+<img src="https://img.shields.io/badge/Apache_Spark-E25A1C?logo=apachespark&logoColor=white" alt="Spark"/>
+<img src="https://img.shields.io/badge/DeepSpeed-008080?logo=deepspeed&logoColor=white" alt="DeepSpeed"/>
+<img src="https://img.shields.io/badge/Ray-028CF0?logo=ray&logoColor=white" alt="Ray"/>
+
+**Distributed Computing & Scaling**
+- `spark/` - Large-scale data processing
+- `deepspeed/` - Model optimization
+- `ray/` - Distributed computing framework
 
 </td></tr>
 
@@ -569,6 +649,8 @@ For those wanting to quickly navigate:
 | 📚 **Comprehensive Documentation** | Document every step for knowledge sharing |
 | ⚡ **Modern Tooling** | Use UV for fast, reliable dependency management |
 | 🚧 **Learning in Public** | Share the messy, imperfect journey of learning |
+| 🤗 **Model Ecosystem Integration** | Integrate HuggingFace, Ollama, and custom models |
+| ⚡ **Scalability Focus** | Implement Spark, DeepSpeed, Ray for large-scale |
 
 ---
 
@@ -584,16 +666,22 @@ For those wanting to quickly navigate:
 | **1️⃣** | ![FastAPI](https://img.shields.io/badge/FastAPI-009688?logo=fastapi&logoColor=white) | Building scalable backend **APIs** for ML inference | **🟢 In Progress** |
 | **2️⃣** | ![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white) | **Containerizing** all services for consistency | 🔵 Planned |
 | **3️⃣** | ![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-D71F00?logo=sqlalchemy&logoColor=white) | **ORM** and **Database Migrations** | 🔵 Planned |
-| **4️⃣** | ![Redis](https://img.shields.io/badge/Redis-DC382D?logo=redis&logoColor=white) | **Caching** and **message broker** setup | 🔵 Planned |
-| **5️⃣** | ![Celery](https://img.shields.io/badge/Celery-37814A?logo=celery&logoColor=white) | **Asynchronous task processing** | 🔵 Planned |
-| **6️⃣** | ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?logo=mongodb&logoColor=white) | **Document store** for metadata | 🔵 Planned |
-| **7️⃣** | ![Qdrant](https://img.shields.io/badge/Qdrant-DC244C?logo=qdrant&logoColor=white) | **Vector search** for RAG applications | 🔵 Planned |
-| **8️⃣** | ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?logo=postgresql&logoColor=white) | **Relational + vector search** with pgvector | 🔵 Planned |
-| **9️⃣** | ![UI](https://img.shields.io/badge/UI_Layer-FF4B4B?logo=streamlit&logoColor=white) | **Interactive frontends** for ML apps | 🔵 Planned |
-| **🔟** | ![PyTorch](https://img.shields.io/badge/Optimization-EE4C2C?logo=pytorch&logoColor=white) | **PyTorch → ONNX → TensorRT** pipeline | 🔵 Planned |
-| **1️⃣1️⃣** | ![MLOps](https://img.shields.io/badge/MLOps-0194E2?logo=mlflow&logoColor=white) | **Workflow orchestration & tracking** | 🔵 Planned |
-| **1️⃣2️⃣** | ![Infrastructure](https://img.shields.io/badge/Infrastructure-7B42BC?logo=terraform&logoColor=white) | **IaC, CI/CD, Monitoring** | 🔵 Planned |
-| **1️⃣3️⃣** | ![UV](https://img.shields.io/badge/UV-FF6F3D?logo=python&logoColor=white) | **Modern Python packaging & dependencies** | ✅ Implemented |
+| **4️⃣** | ![SQL](https://img.shields.io/badge/SQL-4479A1?logo=postgresql&logoColor=white) | **SQL Models & Schemas** for ML metadata | 🔵 Planned |
+| **5️⃣** | ![Redis](https://img.shields.io/badge/Redis-DC382D?logo=redis&logoColor=white) | **Caching** and **message broker** setup | 🔵 Planned |
+| **6️⃣** | ![Celery](https://img.shields.io/badge/Celery-37814A?logo=celery&logoColor=white) | **Asynchronous task processing** | 🔵 Planned |
+| **7️⃣** | ![HuggingFace](https://img.shields.io/badge/HuggingFace-FFD21E?logo=huggingface&logoColor=black) | **Transformer models** integration | 🔵 Planned |
+| **8️⃣** | ![Ollama](https://img.shields.io/badge/Ollama-2B2D42?logo=ollama&logoColor=white) | **Local LLM serving** and management | 🔵 Planned |
+| **9️⃣** | ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?logo=mongodb&logoColor=white) | **Document store** for metadata | 🔵 Planned |
+| **🔟** | ![Qdrant](https://img.shields.io/badge/Qdrant-DC244C?logo=qdrant&logoColor=white) | **Vector search** for RAG applications | 🔵 Planned |
+| **1️⃣1️⃣** | ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?logo=postgresql&logoColor=white) | **Relational + vector search** with pgvector | 🔵 Planned |
+| **1️⃣2️⃣** | ![Spark](https://img.shields.io/badge/Spark-E25A1C?logo=apachespark&logoColor=white) | **Large-scale data processing** | 🔵 Planned |
+| **1️⃣3️⃣** | ![DeepSpeed](https://img.shields.io/badge/DeepSpeed-008080?logo=deepspeed&logoColor=white) | **Model optimization** and scaling | 🔵 Planned |
+| **1️⃣4️⃣** | ![Ray](https://img.shields.io/badge/Ray-028CF0?logo=ray&logoColor=white) | **Distributed computing** framework | 🔵 Planned |
+| **1️⃣5️⃣** | ![UI](https://img.shields.io/badge/UI_Layer-FF4B4B?logo=streamlit&logoColor=white) | **Interactive frontends** for ML apps | 🔵 Planned |
+| **1️⃣6️⃣** | ![PyTorch](https://img.shields.io/badge/Optimization-EE4C2C?logo=pytorch&logoColor=white) | **PyTorch → ONNX → TensorRT** pipeline | 🔵 Planned |
+| **1️⃣7️⃣** | ![MLOps](https://img.shields.io/badge/MLOps-0194E2?logo=mlflow&logoColor=white) | **Workflow orchestration & tracking** | 🔵 Planned |
+| **1️⃣8️⃣** | ![Infrastructure](https://img.shields.io/badge/Infrastructure-7B42BC?logo=terraform&logoColor=white) | **IaC, CI/CD, Monitoring** | 🔵 Planned |
+| **1️⃣9️⃣** | ![UV](https://img.shields.io/badge/UV-FF6F3D?logo=python&logoColor=white) | **Modern Python packaging & dependencies** | ✅ Implemented |
 
 </details>
 
@@ -609,6 +697,7 @@ For those wanting to quickly navigate:
 | **2025-12-09** | ⚡ UV Integration | Modern Python packaging with UV implemented |
 | **2025-12-09** | 🎨 Visual Assets | Added logo.png and stack.png for branding |
 | **2025-12-09** | ⚠️ Warning Added | Clear disclaimer about experimental nature |
+| **2025-12-09** | 🤗 Ecosystem Added | HuggingFace, Ollama, and scaling technologies sections |
 | **Coming Soon** | 🐳 Docker Setup | Containerization of first services |
 | **Coming Soon** | 📊 Database Layer | PostgreSQL + Redis integration |
 | **Coming Soon** | 🔄 CI/CD Pipeline | GitHub Actions workflow setup |
@@ -645,16 +734,31 @@ For those wanting to quickly navigate:
          │ ┌────────────────┐ │ │  LAYER     │ │ ┌─────────────┐ │
          │ │ PostgreSQL     │ │ │ ┌────────┐ │ │ │   PyTorch   │ │
          │ │ + pgvector     │ │ │ │ Redis  │ │ │ │   Models    │ │
-         │ └────────────────┘ │ │ │ Queue  │ │ │ └─────────────┘ │
+         │ │ + SQL Models   │ │ │ │ Queue  │ │ │ └─────────────┘ │
+         │ └────────────────┘ │ │ └────────┘ │ │ ┌─────────────┐ │
+         │ ┌────────────────┐ │ │ ┌────────┐ │ │ │   ONNX      │ │
+         │ │   MongoDB      │ │ │ │ Celery │ │ │ │   Runtime   │ │
+         │ └────────────────┘ │ │ │Workers │ │ │ └─────────────┘ │
          │ ┌────────────────┐ │ │ └────────┘ │ │ ┌─────────────┐ │
-         │ │   MongoDB      │ │ │ ┌────────┐ │ │ │    ONNX     │ │
-         │ └────────────────┘ │ │ │ Celery │ │ │ │   Runtime   │ │
-         │ ┌────────────────┐ │ │ │Workers │ │ │ └─────────────┘ │
-         │ │   Qdrant       │ │ │ └────────┘ │ │ ┌─────────────┐ │
-         │ │  Vector DB     │ │ │            │ │ │  TensorRT   │ │
-         │ └────────────────┘ │ │            │ │ │Optimization │ │
-         └────────────────────┘ └────────────┘ │ └─────────────┘ │
-                                                └─────────────────┘
+         │ │   Qdrant       │ │ │            │ │ │  TensorRT   │ │
+         │ │  Vector DB     │ │ │            │ │ │Optimization │ │
+         │ └────────────────┘ │ │            │ │ └─────────────┘ │
+         └────────────────────┘ └────────────┘ └─────────────────┘
+                    │                                         │
+         ┌──────────▼─────────┐                     ┌────────▼────────┐
+         │ MODEL ECOSYSTEM    │                     │    SCALING      │
+         │ ┌──────────────┐   │                     │  TECHNOLOGIES   │
+         │ │ HuggingFace  │   │                     │ ┌────────────┐  │
+         │ │ Transformers │   │                     │ │   Spark    │  │
+         │ └──────────────┘   │                     │ └────────────┘  │
+         │ ┌──────────────┐   │                     │ ┌────────────┐  │
+         │ │   Ollama     │   │                     │ │ DeepSpeed  │  │
+         │ │ Local Models │   │                     │ └────────────┘  │
+         │ └──────────────┘   │                     │ ┌────────────┐  │
+         │ ┌──────────────┐   │                     │ │    Ray     │  │
+         │ │ Model Registry│  │                     │ └────────────┘  │
+         │ └──────────────┘   │                     └──────────────────┘
+         └────────────────────┘
 
          ┌───────────────────────────────────────────────────────────┐
          │              INFRASTRUCTURE & DEVOPS                       │
@@ -679,6 +783,7 @@ For those wanting to quickly navigate:
 - ✅ Async processing (Celery + Redis)
 - ✅ Multi-database architecture
 - ✅ Vector search (Qdrant + pgvector)
+- ✅ SQL models for ML metadata
 
 </td>
 <td width="50%">
@@ -688,6 +793,26 @@ For those wanting to quickly navigate:
 - ✅ Container orchestration
 - ✅ Infrastructure as Code
 - ✅ Complete observability stack
+
+</td>
+</tr>
+<tr>
+<td width="50%">
+
+**🤗 Model Ecosystem**
+- ✅ HuggingFace integration
+- ✅ Ollama local models
+- ✅ Model registry and versioning
+- ✅ Custom model deployment
+
+</td>
+<td width="50%">
+
+**⚡ Scaling Technologies**
+- ✅ Spark for data processing
+- ✅ DeepSpeed for model optimization
+- ✅ Ray for distributed computing
+- ✅ Horizontal and vertical scaling
 
 </td>
 </tr>
@@ -722,13 +847,16 @@ fastapi/ → sqlalchemy/ → postgresql/
    redis/ ← celery/ → ml_serving/
      │                    │
      ↓                    ↓
-  mongodb/           containerization/
-     │                    │
-     ↓                    ↓
-  vector_db/          kubernetes/
-     │                    │
-     ↓                    ↓
-  frontend/ ←──────── infrastructure/
+  model_ecosystem/ ←── containerization/
+     │       │               │
+     ↓       ↓               ↓
+huggingface/ ollama/    kubernetes/
+     │       │               │
+     ↓       ↓               ↓
+scaling_tech/ ←────── infrastructure/
+   │   │   │
+spark/ │  ray/
+  deepspeed/
 ```
 
 ---
@@ -777,6 +905,8 @@ git push origin feature/amazing-feature
 
 | Area | Need | How You Can Help |
 |------|------|------------------|
+| **Model Ecosystem** | HuggingFace/Ollama examples | Create integration examples |
+| **Scaling Technologies** | Spark/DeepSpeed/Ray tutorials | Write scaling examples |
 | **Documentation** | More tutorials, examples | Write docs, create tutorials |
 | **Testing** | Test coverage, edge cases | Add unit/integration tests |
 | **Examples** | Real-world use cases | Create example projects |
