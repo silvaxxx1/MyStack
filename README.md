@@ -1,19 +1,44 @@
+I'll add the disclaimer about the repository being under construction in a more visible location at the top and fix the HTML rendering issue. Here's the updated version:
+
 # 🚀 MyStack: Full-Stack AI Engineering Journey
 
 <div align="center">
 
-![MyStack Banner](https://img.shields.io/badge/MyStack-Full--Stack_AI_Engineer-6366f1?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJMMiA3TDEyIDEyTDIyIDdMMTIgMloiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik0yIDEyTDEyIDE3TDIyIDEyIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjIiLz4KPHBhdGggZD0iTTIgMTdMMTIgMjJMMjIgMTciIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMiIvPgo8L3N2Zz4=)
+![MyStack Logo](./logo.png)
+*MyStack Logo - The Complete AI Engineering Journey*
+
+### ⚠️ **REPOSITORY UNDER CONSTRUCTION** ⚠️
+### 🚧 **WORK IN PROGRESS - HACK AT YOUR OWN RISK** 🚧
+### 🤝 **CONTRIBUTIONS WELCOME!** 🤝
 
 **Backend • Databases • Vector Search • ML Systems • DevOps • Async/Messaging • Frontend**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python](https://img.shields.io/badge/Python-3.9+-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?logo=docker&logoColor=white)](https://www.docker.com/)
-[![Status](https://img.shields.io/badge/Status-In_Progress-orange)](https://github.com)
+[![UV](https://img.shields.io/badge/uv-Package_Manager-FF6F3D?logo=python&logoColor=white)](https://github.com/astral-sh/uv)
+[![Status: WIP](https://img.shields.io/badge/Status-🚧_Under_Construction-red)](https://github.com)
+[![PRs Welcome](https://img.shields.io/badge/PRs-Welcome!-brightgreen)](https://github.com)
 
-[🎯 Goals](#-purpose-why-mystack) • [📚 Learning Path](#-learning-path-in-order) • [🏗️ Structure](#-repository-structure) • [📊 Progress](#-progress-log)
+[🎯 Goals](#-purpose-why-mystack) • [⚡ Quick Start](#⚡-quick-start) • [📁 Structure](#-project-structure) • [📚 Learning Path](#-learning-path-in-order) • [📊 Progress](#-progress-log)
 
 </div>
+
+---
+
+## ⚠️ IMPORTANT DISCLAIMER
+
+> **🚧 ACTIVE CONSTRUCTION ZONE 🚧**
+> 
+> **This repository is currently under heavy development!**
+> 
+> - 🔧 **Work in Progress**: Many features are incomplete or experimental
+> - ⚡ **Breaking Changes**: APIs and structures may change without warning
+> - 🧪 **Experimental Code**: Some components are proof-of-concepts
+> - 🐛 **Bugs Expected**: This is a learning journey, not production-ready code
+> - 🎯 **Learning Focus**: Primary goal is education, not stability
+> 
+> **HACK AT YOUR OWN RISK!** Better yet - **CONTRIBUTE!** 🛠️
 
 ---
 
@@ -22,6 +47,9 @@
 > **MyStack** is a comprehensive, documented journey through all the necessary components to build **production-grade AI-powered applications**.
 
 This repository represents my complete learning path to becoming a **Full-Stack ML/AI Engineer**—capable of taking a **PyTorch model** from research to production with a robust, scalable system around it.
+
+![MyStack Architecture](./stack.png)
+*Complete AI System Architecture - From Models to Production*
 
 ### 🎓 What You'll Find Here
 
@@ -48,6 +76,346 @@ This repository represents my complete learning path to becoming a **Full-Stack 
 **From Model to Production: A Complete Journey**
 
 </div>
+
+---
+
+## ⚡ Quick Start
+
+### 🚀 Getting Started with UV
+
+[UV](https://github.com/astral-sh/uv) is an extremely fast Python package installer and resolver written in Rust.
+
+#### Prerequisites
+- Python 3.9 or higher
+- UV installed (recommended for optimal performance)
+- **⚠️ Willingness to experiment and break things!**
+
+#### Installation
+
+1. **Install UV** (if not already installed):
+```bash
+# On macOS and Linux
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# On Windows
+powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+
+2. **Clone and setup the project:**
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/MyStack.git
+cd MyStack
+
+# Create virtual environment and install dependencies
+uv venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+
+# Install project with development dependencies
+uv pip install -e ".[dev]"
+
+# Or install production dependencies only
+uv pip install -e .
+```
+
+3. **Run the FastAPI development server:**
+```bash
+uv run python main.py
+# Server starts at http://localhost:8000
+# API docs available at http://localhost:8000/docs
+```
+
+### 📦 Project Setup Commands
+
+| Command | Description |
+|---------|-------------|
+| `uv venv` | Create a new virtual environment |
+| `uv pip install -e .` | Install the project in development mode |
+| `uv pip install -e ".[dev]"` | Install with development dependencies |
+| `uv pip install -e ".[test]"` | Install with testing dependencies |
+| `uv run python main.py` | Run the main application |
+| `uv pip compile pyproject.toml -o requirements.txt` | Generate requirements.txt |
+| `uv pip sync requirements.txt` | Sync environment with requirements |
+
+### 🐳 Docker Setup (Alternative)
+
+```bash
+# Build and run with Docker Compose
+docker-compose up --build
+
+# Or build individual services
+docker build -t mystack-api -f FASTAPI/Dockerfile .
+```
+
+### 🔧 Environment Configuration
+
+1. Copy the environment template:
+```bash
+cp .env.example .env
+```
+
+2. Edit `.env` with your configuration:
+```env
+# FastAPI Configuration
+FASTAPI_HOST=0.0.0.0
+FASTAPI_PORT=8000
+FASTAPI_RELOAD=true
+
+# Database Configuration
+DATABASE_URL=postgresql://user:password@localhost:5432/mystack
+REDIS_URL=redis://localhost:6379/0
+
+# Application Settings
+DEBUG=true
+LOG_LEVEL=INFO
+```
+
+---
+
+## 📁 Project Structure
+
+```
+MyStack/
+├── 📂 api_layer/                    # API and Backend Services
+│   ├── 📂 fastapi/                  # FastAPI Applications
+│   │   ├── 📂 simple_api/          # Basic REST API examples
+│   │   ├── 📂 ml_inference_api/    # ML model serving API
+│   │   ├── 📂 rag_api/             # Retrieval-Augmented Generation API
+│   │   ├── 📂 websockets/          # Real-time WebSocket endpoints
+│   │   └── 📂 middleware/          # Custom middleware and auth
+│   │
+│   └── 📂 sqlalchemy_alembic/      # Database ORM & Migrations
+│       ├── 📂 models/              # SQLAlchemy models
+│       ├── 📂 migrations/          # Alembic migration scripts
+│       ├── 📂 repositories/        # Data access layer
+│       └── 📂 schemas/             # Pydantic schemas for validation
+│
+├── 📂 data_layer/                   # Data Storage Solutions
+│   ├── 📂 sql/                      # Relational Databases
+│   │   ├── 📂 postgresql/          # PostgreSQL with pgvector
+│   │   ├── 📂 migrations/          # Database schema management
+│   │   └── 📂 queries/             # Complex SQL queries and optimizations
+│   │
+│   ├── 📂 nosql/                    # NoSQL Databases
+│   │   ├── 📂 mongodb/             # Document database for metadata
+│   │   ├── 📂 redis/               # Caching and message broker
+│   │   └── 📂 schema_design/       # NoSQL data modeling
+│   │
+│   └── 📂 vector_db/                # Vector Databases
+│       ├── 📂 qdrant/              # Qdrant vector search
+│       ├── 📂 weaviate/            # Weaviate vector database
+│       ├── 📂 pgvector/            # PostgreSQL vector extension
+│       └── 📂 embeddings/          # Embedding generation and management
+│
+├── 📂 async_processing/             # Asynchronous Task Processing
+│   ├── 📂 celery/                   # Distributed Task Queue
+│   │   ├── 📂 tasks/               # Celery task definitions
+│   │   ├── 📂 workers/             # Worker configurations
+│   │   └── 📂 beat_schedule/       # Scheduled tasks
+│   │
+│   └── 📂 redis_broker/            # Message Broker Setup
+│       ├── 📂 config/              # Redis configuration
+│       ├── 📂 pubsub/              # Redis Pub/Sub patterns
+│       └── 📂 cache_strategies/    # Caching patterns and strategies
+│
+├── 📂 ml_serving/                   # Machine Learning Serving
+│   ├── 📂 pytorch/                  # PyTorch Models
+│   │   ├── 📂 models/              # Model architectures
+│   │   ├── 📂 training/            # Training scripts and pipelines
+│   │   ├── 📂 inference/           # Inference optimization
+│   │   └── 📂 utils/               # Model utilities and helpers
+│   │
+│   ├── 📂 onnx/                     # ONNX Runtime
+│   │   ├── 📂 conversion/          # PyTorch to ONNX conversion
+│   │   ├── 📂 optimization/        # ONNX model optimization
+│   │   └── 📂 runtime/             # ONNX runtime inference
+│   │
+│   └── 📂 tensorrt/                 # TensorRT Optimization
+│       ├── 📂 conversion/          # ONNX to TensorRT conversion
+│       ├── 📂 optimization/        # TensorRT optimizations
+│       └── 📂 inference/           # GPU-accelerated inference
+│
+├── 📂 containerization/             # Containerization & Orchestration
+│   ├── 📂 docker/                   # Docker Containers
+│   │   ├── 📂 Dockerfiles/         # Service Dockerfiles
+│   │   ├── 📂 multi_stage/         # Multi-stage builds
+│   │   └── 📂 optimization/        # Docker optimization tips
+│   │
+│   ├── 📂 docker_compose/          # Multi-container Applications
+│   │   ├── 📂 development/         # Dev environment setup
+│   │   ├── 📂 production/          # Production multi-service setup
+│   │   └── 📂 services/            # Individual service definitions
+│   │
+│   └── 📂 kubernetes/              # Kubernetes Orchestration
+│       ├── 📂 manifests/           # K8s YAML manifests
+│       ├── 📂 helm/                # Helm charts
+│       ├── 📂 ingress/             # Ingress controllers and routing
+│       └── 📂 scaling/             # Auto-scaling configurations
+│
+├── 📂 frontend/                     # Frontend Applications
+│   ├── 📂 gradio/                   # Gradio Interfaces
+│   │   ├── 📂 demos/               # Quick ML demos
+│   │   ├── 📂 custom_components/   # Custom Gradio components
+│   │   └── 📂 deployment/          # Gradio app deployment
+│   │
+│   ├── 📂 streamlit/               # Streamlit Applications
+│   │   ├── 📂 data_apps/           # Data visualization apps
+│   │   ├── 📂 ml_dashboards/       # ML model dashboards
+│   │   └── 📂 caching/             # Streamlit performance optimization
+│   │
+│   └── 📂 react/                   # Production React Frontend
+│       ├── 📂 src/                 # React source code
+│       ├── 📂 components/          # Reusable UI components
+│       ├── 📂 hooks/               # Custom React hooks
+│       └── 📂 api/                 # Frontend API integration
+│
+├── 📂 mlops/                        # MLOps Tools & Workflows
+│   ├── 📂 mlflow/                   # MLflow Experiment Tracking
+│   │   ├── 📂 tracking/            # Experiment tracking setup
+│   │   ├── 📂 models/              # MLflow model registry
+│   │   └── 📂 projects/            # MLflow projects
+│   │
+│   ├── 📂 dvc/                      # Data Version Control
+│   │   ├── 📂 pipelines/           # DVC pipelines
+│   │   ├── 📂 data_registry/       # Data versioning
+│   │   └── 📂 remote_storage/      # Cloud storage configuration
+│   │
+│   └── 📂 prefect_airflow/         # Workflow Orchestration
+│       ├── 📂 prefect/             # Prefect workflows
+│       ├── 📂 airflow/             # Apache Airflow DAGs
+│       └── 📂 scheduling/          # Task scheduling and dependencies
+│
+├── 📂 data_engineering/             # Data Processing & Analytics
+│   ├── 📂 duckdb/                   # DuckDB OLAP
+│   │   ├── 📂 queries/             # Analytical queries
+│   │   ├── 📂 extensions/          # DuckDB extensions
+│   │   └── 📂 parquet/             # Parquet file handling
+│   │
+│   ├── 📂 polars/                   # Polars DataFrames
+│   │   ├── 📂 data_processing/     # Fast dataframe operations
+│   │   ├── 📂 lazy_api/            # Lazy evaluation patterns
+│   │   └── 📂 performance/         # Performance optimization
+│   │
+│   └── 📂 pipelines/                # ETL/ELT Pipelines
+│       ├── 📂 extraction/          # Data extraction
+│       ├── 📂 transformation/      # Data transformation
+│       └── 📂 loading/             # Data loading strategies
+│
+├── 📂 infrastructure/               # Infrastructure & DevOps
+│   ├── 📂 terraform/               # Infrastructure as Code
+│   │   ├── 📂 modules/             # Reusable Terraform modules
+│   │   ├── 📂 environments/        # Dev/Staging/Prod environments
+│   │   └── 📂 providers/           # Cloud provider configurations
+│   │
+│   ├── 📂 nginx/                    # NGINX Configuration
+│   │   ├── 📂 reverse_proxy/       # Reverse proxy setup
+│   │   ├── 📂 load_balancing/      # Load balancing configurations
+│   │   └── 📂 ssl/                 # SSL/TLS termination
+│   │
+│   ├── 📂 github_actions/          # CI/CD Pipelines
+│   │   ├── 📂 workflows/           # GitHub Actions workflows
+│   │   ├── 📂 tests/               # Automated testing
+│   │   └── 📂 deployment/          # Deployment pipelines
+│   │
+│   └── 📂 observability/           # Monitoring & Observability
+│       ├── 📂 prometheus/          # Prometheus metrics
+│       ├── 📂 grafana/             # Grafana dashboards
+│       ├── 📂 logging/             # Centralized logging
+│       └── 📂 tracing/             # Distributed tracing
+│
+├── 📂 examples/                     # Complete Example Projects
+│   ├── 📂 rag_system/              # Full RAG implementation
+│   ├── 📂 ml_pipeline/             # End-to-end ML pipeline
+│   ├── 📂 realtime_inference/      # Real-time inference system
+│   └── 📂 microservices/           # Microservices architecture example
+│
+├── 📂 config/                       # Configuration Files
+│   ├── 📂 environments/            # Environment-specific configs
+│   ├── 📂 secrets/                 # Secret management templates
+│   └── 📂 logging/                 # Logging configuration
+│
+├── 📂 tests/                        # Testing Suite
+│   ├── 📂 unit/                    # Unit tests
+│   ├── 📂 integration/             # Integration tests
+│   ├── 📂 e2e/                     # End-to-end tests
+│   └── 📂 fixtures/                # Test fixtures and data
+│
+├── 📂 docs/                         # Documentation
+│   ├── 📂 architecture/            # System architecture docs
+│   ├── 📂 tutorials/               # Step-by-step tutorials
+│   ├── 📂 api/                     # API documentation
+│   └── 📂 deployment/              # Deployment guides
+│
+├── 📂 scripts/                      # Utility Scripts
+│   ├── 📂 setup/                   # Environment setup scripts
+│   ├── 📂 deployment/              # Deployment scripts
+│   ├── 📂 monitoring/              # Monitoring and maintenance
+│   └── 📂 data/                    # Data processing scripts
+│
+├── 📂 .github/                      # GitHub Configuration
+│   ├── 📂 workflows/               # GitHub Actions workflows
+│   ├── 📂 ISSUE_TEMPLATE/          # Issue templates
+│   └── 📂 PULL_REQUEST_TEMPLATE/   # PR templates
+│
+├── 📜 .env.example                  # Environment variables template
+├── 📜 pyproject.toml                # Modern Python project config (UV compatible)
+├── 📜 docker-compose.yml            # Main Docker Compose file
+├── 📜 Makefile                      # Common commands and shortcuts
+├── 📜 main.py                       # Main application entry point
+├── 📜 logo.png                      # Project logo
+├── 📜 stack.png                     # Architecture diagram
+├── 📜 README.md                     # This file
+└── 📜 LICENSE                       # MIT License
+```
+
+### 🗂️ Directory Overview
+
+| Directory | Purpose | Key Technologies |
+|-----------|---------|------------------|
+| **`api_layer/`** | Backend APIs and database layer | FastAPI, SQLAlchemy, Alembic |
+| **`data_layer/`** | All data storage solutions | PostgreSQL, MongoDB, Redis, Qdrant |
+| **`async_processing/`** | Background task processing | Celery, Redis Queue |
+| **`ml_serving/`** | ML model development and serving | PyTorch, ONNX, TensorRT |
+| **`containerization/`** | Container and orchestration | Docker, Kubernetes, Helm |
+| **`frontend/`** | User interfaces | Gradio, Streamlit, React |
+| **`mlops/`** | ML operations and workflows | MLflow, DVC, Prefect |
+| **`data_engineering/`** | Data processing and analytics | DuckDB, Polars, ETL |
+| **`infrastructure/`** | DevOps and infrastructure | Terraform, GitHub Actions, Prometheus |
+| **`examples/`** | Complete working examples | Full system implementations |
+| **`config/`** | Configuration management | Environment configs, secrets |
+| **`tests/`** | Comprehensive testing | Unit, integration, E2E tests |
+| **`docs/`** | Documentation | Architecture, tutorials, API docs |
+| **`scripts/`** | Utility scripts | Setup, deployment, monitoring |
+
+### 🚀 Quick Start Structure
+
+For those wanting to quickly navigate:
+
+```
+📦 MyStack
+├── 🚀 Getting Started
+│   ├── 📜 README.md              # Main documentation
+│   ├── 📜 docker-compose.yml     # Quick start with Docker
+│   ├── 📜 pyproject.toml         # UV project configuration
+│   └── 📜 main.py                # Entry point
+│
+├── 🔧 Core Development
+│   ├── 📂 FASTAPI/              # Current FastAPI implementation
+│   ├── 📂 api_layer/            # Complete API layer (planned)
+│   ├── 📂 ml_serving/           # ML serving (planned)
+│   └── 📂 frontend/             # UI layer (planned)
+│
+├── 🏗️ Production Ready
+│   ├── 📂 infrastructure/        # IaC and deployment
+│   ├── 📂 containerization/      # Container orchestration
+│   └── 📂 mlops/                 # MLOps workflows
+│
+└── 📚 Learning Resources
+    ├── 📂 examples/              # Complete examples
+    ├── 📂 docs/                  # Detailed documentation
+    ├── 📜 logo.png              # Project branding
+    └── 📜 stack.png             # System architecture
+```
 
 ---
 
@@ -199,6 +567,8 @@ This repository represents my complete learning path to becoming a **Full-Stack 
 | 🏗️ **Full-Stack Engineer** | Backend, Data, DevOps, and ML expertise combined |
 | 🚀 **Production-Ready** | Create fully deployable, scalable applications |
 | 📚 **Comprehensive Documentation** | Document every step for knowledge sharing |
+| ⚡ **Modern Tooling** | Use UV for fast, reliable dependency management |
+| 🚧 **Learning in Public** | Share the messy, imperfect journey of learning |
 
 ---
 
@@ -223,6 +593,7 @@ This repository represents my complete learning path to becoming a **Full-Stack 
 | **🔟** | ![PyTorch](https://img.shields.io/badge/Optimization-EE4C2C?logo=pytorch&logoColor=white) | **PyTorch → ONNX → TensorRT** pipeline | 🔵 Planned |
 | **1️⃣1️⃣** | ![MLOps](https://img.shields.io/badge/MLOps-0194E2?logo=mlflow&logoColor=white) | **Workflow orchestration & tracking** | 🔵 Planned |
 | **1️⃣2️⃣** | ![Infrastructure](https://img.shields.io/badge/Infrastructure-7B42BC?logo=terraform&logoColor=white) | **IaC, CI/CD, Monitoring** | 🔵 Planned |
+| **1️⃣3️⃣** | ![UV](https://img.shields.io/badge/UV-FF6F3D?logo=python&logoColor=white) | **Modern Python packaging & dependencies** | ✅ Implemented |
 
 </details>
 
@@ -235,8 +606,12 @@ This repository represents my complete learning path to becoming a **Full-Stack 
 | 📅 Date | 🎯 Milestone | 📝 Notes |
 |:--------|:-------------|:---------|
 | **2025-12-09** | 🎉 Repository Initialized | Folder structure defined, starting with **FastAPI** module |
+| **2025-12-09** | ⚡ UV Integration | Modern Python packaging with UV implemented |
+| **2025-12-09** | 🎨 Visual Assets | Added logo.png and stack.png for branding |
+| **2025-12-09** | ⚠️ Warning Added | Clear disclaimer about experimental nature |
 | **Coming Soon** | 🐳 Docker Setup | Containerization of first services |
 | **Coming Soon** | 📊 Database Layer | PostgreSQL + Redis integration |
+| **Coming Soon** | 🔄 CI/CD Pipeline | GitHub Actions workflow setup |
 
 </div>
 
@@ -316,17 +691,113 @@ This repository represents my complete learning path to becoming a **Full-Stack 
 
 </td>
 </tr>
+<tr>
+<td width="50%">
+
+**🛠️ Development Tools**
+- ✅ UV package management
+- ✅ Modern pyproject.toml
+- ✅ Docker support
+- ✅ Comprehensive documentation
+
+</td>
+<td width="50%">
+
+**🎨 User Experience**
+- ✅ Project branding (logo.png)
+- ✅ Architecture diagrams (stack.png)
+- ✅ Interactive API documentation
+- ✅ Multiple frontend options
+
+</td>
+</tr>
 </table>
+
+### 📦 Module Dependencies
+
+```
+fastapi/ → sqlalchemy/ → postgresql/
+     │          │            │
+     ↓          ↓            ↓
+   redis/ ← celery/ → ml_serving/
+     │                    │
+     ↓                    ↓
+  mongodb/           containerization/
+     │                    │
+     ↓                    ↓
+  vector_db/          kubernetes/
+     │                    │
+     ↓                    ↓
+  frontend/ ←──────── infrastructure/
+```
 
 ---
 
 ## 🤝 Contributing
 
-This is a personal learning journey, but suggestions and feedback are welcome!
+> **🚀 CONTRIBUTIONS WELCOME! 🚀**
+> 
+> **This is a learning journey, not a polished product!**
+> 
+> We're building in public, embracing the messiness of learning. Your contributions, suggestions, and feedback are **highly encouraged**!
 
-1. 🍴 Fork the repository
-2. 🔧 Create your feature branch
-3. 💬 Share your insights via issues
+### 🎯 Why Contribute?
+
+- 🧠 **Learn together**: Share knowledge and grow as engineers
+- 🔧 **Break things safely**: Experimental environment welcome
+- 📚 **Document the journey**: Help others learn from our mistakes
+- 🚀 **Build something amazing**: Collective effort creates better results
+- 🤝 **Join a community**: Connect with other aspiring full-stack AI engineers
+
+### 🛠️ Development Workflow
+
+```bash
+# 1. Fork and clone the repository
+git clone https://github.com/yourusername/MyStack.git
+cd MyStack
+
+# 2. Set up development environment with UV
+uv venv
+source .venv/bin/activate
+uv pip install -e ".[dev]"
+
+# 3. Create a feature branch
+git checkout -b feature/amazing-feature
+
+# 4. Make your changes and commit
+git commit -m "Add amazing feature"
+
+# 5. Push to your fork
+git push origin feature/amazing-feature
+
+# 6. Create a Pull Request
+```
+
+### 💡 Areas Needing Help
+
+| Area | Need | How You Can Help |
+|------|------|------------------|
+| **Documentation** | More tutorials, examples | Write docs, create tutorials |
+| **Testing** | Test coverage, edge cases | Add unit/integration tests |
+| **Examples** | Real-world use cases | Create example projects |
+| **Bug Fixes** | Experimental code has bugs | Find and fix issues |
+| **New Features** | Missing components | Implement planned features |
+| **Optimization** | Performance improvements | Profile and optimize code |
+
+### 📝 Contribution Guidelines
+
+1. **Embrace experimentation**: This isn't production code - be bold!
+2. **Document your journey**: Add comments about what you learned
+3. **Break things safely**: Use branches and test thoroughly
+4. **Share knowledge**: Explain your approach in PR descriptions
+5. **Be patient**: We're all learning together
+
+### 🚨 Important Notes for Contributors
+
+- ⚠️ **No guarantees**: Code may break, APIs may change
+- 🧪 **Experimental welcome**: Proof-of-concepts encouraged
+- 📚 **Learning focus**: Document your learning process
+- 🤝 **Supportive community**: Help each other grow
 
 ---
 
@@ -340,7 +811,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ### 🌟 **Learning in Public, Building for Production** 🌟
 
-**Made with ❤️ and lots of ☕**
+**🚧 Breaking things and learning along the way 🚧**
+
+**Made with ❤️, lots of ☕, and a healthy dose of 🔥**
 
 [![GitHub followers](https://img.shields.io/github/followers/yourusername?style=social)](https://github.com/yourusername)
 [![Twitter Follow](https://img.shields.io/twitter/follow/yourusername?style=social)](https://twitter.com/yourusername)
@@ -348,3 +821,41 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 **[⬆ Back to Top](#-mystack-full-stack-ai-engineering-journey)**
 
 </div>
+
+---
+
+### 📝 Note on UV vs Traditional pip
+
+This project uses **UV** (ultra-fast Python package manager) instead of traditional pip for:
+
+1. **🚀 10-100x faster** package installation
+2. **📦 Better dependency resolution** with Cargo-inspired algorithms
+3. **🔄 Automatic virtual environment management**
+4. **⚡ Parallel downloads and caching**
+5. **🔒 More secure dependency resolution**
+
+While traditional `pip` + `requirements.txt` still works, UV provides a superior developer experience. The `pyproject.toml` file contains all dependency specifications in a modern, PEP 621-compliant format.
+
+To migrate from traditional pip to UV:
+```bash
+# If you have requirements.txt
+uv pip compile requirements.txt -o pyproject.toml
+
+# Or start fresh
+uv init
+```
+
+---
+
+> **⚠️ ONE FINAL WARNING ⚠️**
+> 
+> **This repository is a work in progress!**
+> 
+> Expect:
+> - 🐛 Bugs and broken code
+> - 🔄 Frequent changes
+> - 📈 Evolving architecture
+> - 🎯 Shifting priorities
+> - 🧪 Experimental approaches
+> 
+> **Proceed with curiosity, contribute with enthusiasm!**
