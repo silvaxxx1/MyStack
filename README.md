@@ -29,6 +29,7 @@
 
 ## 📑 Quick Navigation
 - [🚀 Quick Start](#⚡-quick-start)
+- [📁 Project Structure](#📁-project-structure)
 - [🎯 Who Is This For?](#-who-is-this-for)
 - [🏗️ System Layers Overview](#-system-layers-overview)
 - [📊 Layer Evolution & Skills Matrix](#-layer-evolution--skills-matrix)
@@ -128,6 +129,128 @@
 - 🐧 Linux command line basics
 
 > **⚠️ This is NOT an ML tutorial.** We focus on the **engineering, infrastructure, and production deployment** of AI systems, assuming you already understand model fundamentals.
+
+---
+
+## 📁 Project Structure
+
+```
+MyStack/
+├── 📁 layer1_basic_api/                    # Layer 1: Basic Chatbot API
+├── 📁 layer2_rag_capability/               # Layer 2: RAG Capability
+├── 📁 layer3_database_migration/           # Layer 3: Database Migration
+├── 📁 layer4_automation_orchestration/     # Layer 4: Automation
+├── 📁 layer5_mlops_monitoring/             # Layer 5: MLOps & Monitoring
+├── 📁 layer6_production_scale/             # Layer 6: Production Scale
+├── 📁 shared/                              # Shared utilities across layers
+├── 📁 docs/                                # Documentation
+├── 📁 scripts/                             # Development scripts
+├── 📁 examples/                            # Example implementations
+├── 📁 config/                              # Configuration files
+├── 📁 .github/                             # GitHub workflows
+├── 📁 .devcontainer/                       # Dev container configuration
+├── 📁 .vscode/                             # VSCode settings
+├── pyproject.toml                          # Project metadata & dependencies
+├── uv.lock                                 # UV lock file
+├── .env.example                            # Environment variables template
+├── .gitignore                              # Git ignore file
+├── .dockerignore                           # Docker ignore file
+├── LICENSE                                 # MIT License
+├── CONTRIBUTING.md                         # Contribution guidelines
+├── CODE_OF_CONDUCT.md                      # Code of conduct
+└── README.md                               # This file
+```
+
+### **Detailed Structure by Layer:**
+
+#### **Layer 1: Basic Chatbot API**
+```
+layer1_basic_api/
+├── 📁 api/
+│   ├── main.py              # FastAPI app
+│   ├── config.py            # Configuration
+│   ├── 📁 routes/           # API endpoints
+│   ├── 📁 services/         # Business logic
+│   ├── 📁 schemas/          # Pydantic models
+│   ├── 📁 utils/            # Utilities
+│   └── 📁 middleware/       # Middleware
+├── 📁 tests/                # Tests
+├── Dockerfile              # Docker configuration
+├── docker-compose.yml      # Docker Compose setup
+├── requirements.txt        # Python dependencies
+├── pyproject.toml          # Modern Python packaging
+├── .env.example            # Environment template
+└── README.md               # Layer-specific README
+```
+
+#### **Layer 2: RAG Capability**
+```
+layer2_rag_capability/
+├── 📁 api/
+│   ├── 📁 routes/           # Enhanced endpoints
+│   ├── 📁 services/         # RAG services
+│   ├── 📁 schemas/          # Document schemas
+│   └── 📁 models/           # MongoDB models
+├── 📁 vector_store/         # Qdrant integration
+├── 📁 document_processing/  # Document parsing & chunking
+├── Dockerfile
+├── docker-compose.yml      # Adds MongoDB + Qdrant
+└── README.md
+```
+
+#### **Layer 3: Database Migration**
+```
+layer3_database_migration/
+├── 📁 migrations/           # Alembic migrations
+├── 📁 api/
+│   ├── 📁 repositories/     # SQLModel repositories
+│   ├── 📁 models/           # PostgreSQL models
+│   └── 📁 services/         # Migration logic
+├── 📁 scripts/              # Migration scripts
+├── Dockerfile
+├── docker-compose.yml      # PostgreSQL + pgvector
+└── README.md
+```
+
+#### **Layer 4: Automation & Orchestration**
+```
+layer4_automation_orchestration/
+├── 📁 celery_app/           # Celery configuration & tasks
+├── 📁 airflow/              # Airflow DAGs
+├── 📁 api/
+│   └── 📁 routes/           # Job status endpoints
+├── Dockerfile
+├── docker-compose.yml      # Adds Redis, Celery, Airflow
+└── README.md
+```
+
+#### **Layer 5: MLOps & Monitoring**
+```
+layer5_mlops_monitoring/
+├── 📁 mlflow/               # Experiment tracking
+├── 📁 monitoring/           # Prometheus + Grafana
+├── 📁 ci_cd/                # GitHub Actions workflows
+├── 📁 api/
+│   ├── 📁 routes/           # Metrics & experiments endpoints
+│   └── 📁 middleware/       # Request monitoring
+├── Dockerfile
+├── docker-compose.yml      # Adds MLflow, Prometheus, Grafana
+└── README.md
+```
+
+#### **Layer 6: Production Scale**
+```
+layer6_production_scale/
+├── 📁 kubernetes/           # K8s manifests & scripts
+├── 📁 ray_serve/            # Distributed model serving
+├── 📁 multi_tenant/         # Multi-tenant architecture
+├── 📁 api/
+│   └── 📁 routes/           # Tenant management endpoints
+├── Dockerfile              # Multi-stage builds
+├── docker-compose.yml      # Full production stack
+├── helm/                   # Helm charts
+└── README.md
+```
 
 ---
 
@@ -270,6 +393,7 @@ git clone https://github.com/yourusername/MyStack.git
 cd MyStack
 
 # Start Layer 1 with Docker Compose
+cd layer1_basic_api
 docker-compose up --build
 
 # Access the API (in 1-2 minutes)
@@ -1346,7 +1470,7 @@ v4.0 (Automation) → v5.0 (MLOps) → v6.0 (Scale)
 **Made with ❤️, lots of ☕, and a healthy dose of 🔥**
 
 [![GitHub followers](https://img.shields.io/github/followers/yourusername?style=social)](https://github.com/yourusername)
-[![Twitter Follow](https://img.shields.io/twitter/follow/yourusername?style=social)](https://twitter.com/yourusername)
+[![Twitter Follow](https://img.shields.io/twitter/follow/yourusername?style=social)](https.twitter.com/yourusername)
 
 **[⬆ Back to Top](#-mystack-full-stack-ai-engineering-journey)**
 
